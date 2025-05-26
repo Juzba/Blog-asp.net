@@ -1,0 +1,42 @@
+﻿@page "/Blog"
+@model Blog_asp.net.Pages.BlogModel
+@{
+}
+
+<div>
+
+	<h1>Blog</h1>
+
+    @if(!Model.PostList.Any())
+    {
+        <p>Žádný obsah!!</p>
+    }
+    else
+    {
+	    <table>
+            <thead >
+                <tr>
+                    <th>@Html.DisplayNameFor(prop=>prop.PostList[0].Title)</th>
+                    <th>@Html.DisplayNameFor(prop=>prop.PostList[0].Date)</th>
+                    <th>@Html.DisplayNameFor(prop=>prop.PostList[0].Text)</th>
+                </tr>
+            </thead>
+
+            @foreach(var post in Model.PostList)
+            {
+                <tbody>
+                    <tr>
+                        <td>@Html.DisplayFor(p=>post.Title)</td>
+                        <td>@Html.DisplayFor(p=>post.Date)</td>
+                        <td>@Html.DisplayFor(p=>post.Text)</td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    }
+
+
+
+
+</div>
+
