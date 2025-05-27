@@ -7,20 +7,22 @@
 
 	<h1>Blog</h1>
 
-    <a asp-area="" asp-page="/blog/edit" >Vytvořit post!</a>
 
     @if(Model.PostList == null || !Model.PostList.Any())
     {
         <p>Žádný obsah!!</p>
+        <a asp-area="" asp-page="/blog/edit" >Vytvořit post!</a>
     }
     else
     {
-	    <table>
+        <table class="table table-dark table-striped">
             <thead >
                 <tr>
+                    <th>@Html.DisplayNameFor(prop=>prop.PostList[0].Id)</th>
                     <th>@Html.DisplayNameFor(prop=>prop.PostList[0].Title)</th>
                     <th>@Html.DisplayNameFor(prop=>prop.PostList[0].Date)</th>
                     <th>@Html.DisplayNameFor(prop=>prop.PostList[0].Text)</th>
+                    <th>@Html.DisplayNameFor(prop=>prop.PostList[0].IsOnTop)</th>
                 </tr>
             </thead>
 
@@ -28,9 +30,12 @@
             {
                 <tbody>
                     <tr>
+                        <td>@Html.DisplayFor(p=>post.Id)</td>
                         <td>@Html.DisplayFor(p=>post.Title)</td>
                         <td>@Html.DisplayFor(p=>post.Date)</td>
                         <td>@Html.DisplayFor(p=>post.Text)</td>
+                        <td>@Html.DisplayFor(p=>post.IsOnTop)</td>
+                        <td><a asp-area="" asp-page="/Blog/Details" asp-route-id="@post.Id">Details</a></td>
                     </tr>
                 </tbody>
             }

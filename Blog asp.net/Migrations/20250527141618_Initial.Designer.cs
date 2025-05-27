@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Blog_asp.net.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250527104737_UpdateModel")]
-    partial class UpdateModel
+    [Migration("20250527141618_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,9 @@ namespace Blog_asp.net.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsOnTop")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Text")
                         .IsRequired()

@@ -11,19 +11,23 @@
 	<form method="post" class="w-50 mx-auto m-5">
 
 		<div class="mb-3">
-			<input type="text" class="form-control" placeholder="Title">
-			<span class="text-danger" asp-validation-for="PostM" ></span>
+			<input asp-for="PostM.Title" type="text" class="form-control" placeholder="Title">
+			<span asp-validation-for="PostM.Title" class="text-danger"></span>
 		</div>
 
 		<div class="mb-3">
-			<input type="text" class="form-control" placeholder="Text">
+			<input asp-for="PostM.Text" type="text" class="form-control" placeholder="Text">
+			<span asp-validation-for="PostM.Text" class="text-danger"></span>
 		</div>
 
-		<div class="mb-3">
-			<input type="radio" class="form-control" placeholder="name@example.com">
+		<div class="form-check">
+			<input asp-for="PostM.IsOnTop" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+			<label class="form-check-label" for="flexCheckDefault">
+				Připnout?
+			</label>
 		</div>
 
-		<button type="submit">Odeslat</button>
+		<button class="btn btn-primary my-3" type="submit">Odeslat</button>
 	</form>
 
 

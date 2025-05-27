@@ -1,0 +1,24 @@
+﻿@page "/Details"
+@model Blog_asp.net.Pages.Blog.DetailsModel
+@{
+}
+
+
+<div>
+	<h1>Details</h1>
+
+	@if(Model.PostM == null)
+	{
+		<p>Nenalezeno !!</p>
+		return;
+	}
+
+	<p>@Model.PostM.Id</p>
+	<p>@Model.PostM.Title</p>
+	<p>@Model.PostM.Date</p>
+	<p>@Model.PostM.Text</p>
+	<p>@Model.PostM.IsOnTop</p>
+
+
+
+</div>
