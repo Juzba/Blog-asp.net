@@ -1,0 +1,44 @@
+﻿@page "/Edit"
+@model Blog_asp.net.Pages.Blog.EditModel
+@{
+}
+
+
+<div>
+
+	<h1 class="text-lg-center m-5">Vytvořit příspěvek.</h1>
+
+	<form method="post" class="w-50 mx-auto m-5">
+
+		<div class="mb-3">
+			<input type="text" class="form-control" placeholder="Title">
+			<span class="text-danger" asp-validation-for="PostM" ></span>
+		</div>
+
+		<div class="mb-3">
+			<input type="text" class="form-control" placeholder="Text">
+		</div>
+
+		<div class="mb-3">
+			<input type="radio" class="form-control" placeholder="name@example.com">
+		</div>
+
+		<button type="submit">Odeslat</button>
+	</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

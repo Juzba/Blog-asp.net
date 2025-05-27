@@ -6,12 +6,11 @@ namespace Blog_asp.net.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
-         public DbSet<PostM> PostMs { get; set; } = default!;
 
+        public DbSet<PostM> PostMs { get; set; }
     }
 }

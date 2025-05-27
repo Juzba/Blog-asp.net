@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blog_asp.net.Pages
+namespace Blog_asp.net.Pages.Blog
 {
     public class BlogModel(ApplicationDbContext db) : PageModel
     {
@@ -15,6 +15,7 @@ namespace Blog_asp.net.Pages
         public async Task OnGet()
         {
             PostList = await _db.PostMs.ToListAsync();
+
         }
     }
 }

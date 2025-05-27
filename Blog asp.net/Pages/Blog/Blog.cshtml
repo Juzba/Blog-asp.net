@@ -1,5 +1,5 @@
 ﻿@page "/Blog"
-@model Blog_asp.net.Pages.BlogModel
+@model Blog_asp.net.Pages.Blog.BlogModel
 @{
 }
 
@@ -7,7 +7,9 @@
 
 	<h1>Blog</h1>
 
-    @if(!Model.PostList.Any())
+    <a asp-area="" asp-page="/blog/edit" >Vytvořit post!</a>
+
+    @if(Model.PostList == null || !Model.PostList.Any())
     {
         <p>Žádný obsah!!</p>
     }

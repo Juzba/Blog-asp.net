@@ -11,7 +11,7 @@ namespace Blog_asp.net.Models
         [Required(ErrorMessage = "Zadej název")]
         public string? Title { get; set; }
 
-        public DateTime Date { get; } = DateTime.Now;
+        public DateTime Date { get; set; } = DateTime.Now;
 
         [Required(ErrorMessage = "Zadej Text")]
         public string? Text { get; set; }
