@@ -7,6 +7,7 @@
 
 	<h1>Blog</h1>
 
+        <a asp-area="" asp-page="/blog/edit" >Vytvořit post!</a>
 
     @if(Model.PostList == null || !Model.PostList.Any())
     {
@@ -35,7 +36,7 @@
                         <td>@Html.DisplayFor(p=>post.Date)</td>
                         <td>@Html.DisplayFor(p=>post.Text)</td>
                         <td>@Html.DisplayFor(p=>post.IsOnTop)</td>
-                        <td><a asp-area="" asp-page="/Blog/Details" asp-route-id="@post.Id">Details</a></td>
+                        <td><a asp-area="" asp-page="/Blog/Details" asp-route-id="@post.Id" class="btn btn-secondary">Details</a></td>
                     </tr>
                 </tbody>
             }

@@ -4,8 +4,8 @@
 }
 
 
-<div>
-	<h1>Details</h1>
+<div class="w-50 mx-auto py-5">
+	<h1>Detail příspěvku</h1>
 
 	@if(Model.PostM == null)
 	{
@@ -13,11 +13,35 @@
 		return;
 	}
 
-	<p>@Model.PostM.Id</p>
-	<p>@Model.PostM.Title</p>
-	<p>@Model.PostM.Date</p>
-	<p>@Model.PostM.Text</p>
-	<p>@Model.PostM.IsOnTop</p>
+	<div>
+
+		<table class="table table-dark my-5">
+				<tr>
+							<td>Id:</td>
+							<td>@Model.PostM.Id</td>
+				</tr>
+				<tr>
+							<td>Název:</td>
+							<td>@Model.PostM.Title</td>
+				</tr>
+				<tr>
+							<td>Datum:</td>
+							<td>@Model.PostM.Date</td>
+				</tr>
+				<tr>
+							<td>Příspěvek:</td>
+							<td>@Model.PostM.Text</td>
+				</tr>
+				<tr>
+							<td>Připnuto:</td>
+							<td>@Model.PostM.IsOnTop</td>
+				</tr>
+		</table>
+
+		<a class="btn btn-secondary" asp-area="" asp-page="/Blog/Blog">Zpět na Blog</a>
+		<a class="btn btn-secondary" asp-route-id="@Model.PostM.Id" asp-area="" asp-page="/Blog/Edit">Editovat</a>
+		<a class="btn btn-secondary" asp-area="" asp-page="/Blog/Delete" asp-route-id="@Model.PostM.Id">Smazat</a>
+	</div>
 
 
 

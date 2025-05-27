@@ -2,7 +2,6 @@ using Blog_asp.net.Data;
 using Blog_asp.net.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Blog_asp.net.Pages.Blog
 {
@@ -12,22 +11,31 @@ namespace Blog_asp.net.Pages.Blog
         private readonly ApplicationDbContext _db = db;
 
         [BindProperty]
-        public PostM PostM { get; set; } = default!;
-        public IActionResult OnGet()
+        public PostM? PostM { get; set; }
+        public int EditId { get; set; }
+        public async Task<IActionResult> OnGetAsync(int id)
         {
+            EditId = id;
+
+            if (id > 0)
+            {
+                PostM = await _db.PostMs.FindAsync(id);
+            }
+
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
 
-            if (!ModelState.IsValid)
+            if (PostM == null || !ModelState.IsValid)
             {
                 return Page();
             }
 
             await _db.PostMs.AddAsync(PostM);
             await _db.SaveChangesAsync();
+
 
 
             return RedirectToPage("/Blog/Blog");

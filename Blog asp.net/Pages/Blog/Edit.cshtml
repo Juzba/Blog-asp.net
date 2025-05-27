@@ -6,7 +6,16 @@
 
 <div>
 
-	<h1 class="text-lg-center m-5">Vytvořit příspěvek.</h1>
+	
+	@if(Model.EditId == 0)
+	{
+		<h1 class="text-lg-center m-5">Vytvořít nový příspěvek.</h1>
+	}
+	else
+	{
+		<h1 class="text-lg-center m-5">Editovat příspěvek.</h1>
+	}
+
 
 	<form method="post" class="w-50 mx-auto m-5">
 
@@ -21,7 +30,7 @@
 		</div>
 
 		<div class="form-check">
-			<input asp-for="PostM.IsOnTop" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+			<input asp-for="PostM.IsOnTop" class="form-check-input" type="checkbox" id="flexCheckDefault">
 			<label class="form-check-label" for="flexCheckDefault">
 				Připnout?
 			</label>

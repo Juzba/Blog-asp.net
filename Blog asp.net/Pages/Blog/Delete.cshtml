@@ -1,0 +1,47 @@
+﻿@page "/Delete"
+@model Blog_asp.net.Pages.Blog.DeleteModel
+@{
+}
+
+<div class="w-50 mx-auto py-5">
+	<h1>Smazat příspěvek</h1>
+
+@if (Model.PostM == null)
+{
+		<p>Nenalezeno !!</p>
+	return;
+}
+
+	<div>
+
+		<table class="table table-dark my-5">
+			<tr>
+				<td>Id:</td>
+				<td>@Model.PostM.Id</td>
+			</tr>
+			<tr>
+				<td>Název:</td>
+				<td>@Model.PostM.Title</td>
+			</tr>
+			<tr>
+				<td>Datum:</td>
+				<td>@Model.PostM.Date</td>
+			</tr>
+			<tr>
+				<td>Příspěvek:</td>
+				<td>@Model.PostM.Text</td>
+			</tr>
+			<tr>
+				<td>Připnuto:</td>
+				<td>@Model.PostM.IsOnTop</td>
+			</tr>
+		</table>
+
+		<form method="post">
+			<a class="btn btn-secondary" asp-area="" asp-page="/Blog/Blog">Zpět na Blog</a>
+			<button class="btn btn-secondary btn-danger" type="submit">Smazat</button>
+		</form>
+		
+	</div>
+
+</div>

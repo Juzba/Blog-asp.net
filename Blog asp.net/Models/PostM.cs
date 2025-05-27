@@ -16,6 +16,7 @@ namespace Blog_asp.net.Models
         [Required(ErrorMessage = "Zadej Text")]
         public string? Text { get; set; }
 
+        [Required]
         public bool IsOnTop { get; set; }
     }
 }

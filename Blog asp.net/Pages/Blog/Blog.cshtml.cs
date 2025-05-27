@@ -10,7 +10,7 @@ namespace Blog_asp.net.Pages.Blog
     {
         private readonly ApplicationDbContext _db = db;
 
-        //[BindProperty]
+        [BindProperty]
         public IList<PostM> PostList { get; set; } = default!;
         public async Task OnGet()
         {
