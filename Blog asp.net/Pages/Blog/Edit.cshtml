@@ -19,6 +19,15 @@
 
 	<form method="post" class="w-50 mx-auto m-5">
 
+		@if (Model.PostM?.Id > 0)
+		{
+			<div class="d-flex py-4">
+				<div>Id:</div>
+				<div class="px-3">@Model.PostM.Id</div>
+			</div>
+			<input asp-for="PostM.Id" type="hidden" class="form-control" placeholder="Id">
+		}
+
 		<div class="mb-3">
 			<input asp-for="PostM.Title" type="text" class="form-control" placeholder="Title">
 			<span asp-validation-for="PostM.Title" class="text-danger"></span>

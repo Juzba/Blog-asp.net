@@ -28,15 +28,18 @@ namespace Blog_asp.net.Pages.Blog
         public async Task<IActionResult> OnPostAsync()
         {
 
-            if (PostM == null || !ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (PostM == null || !ModelState.IsValid) return Page();
 
-            await _db.PostMs.AddAsync(PostM);
+
+            // Edit post
+            if (PostM.Id > 0) _db.Entry(PostM).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+            // New post
+            else await _db.PostMs.AddAsync(PostM);
+
+
+
             await _db.SaveChangesAsync();
-
-
 
             return RedirectToPage("/Blog/Blog");
         }

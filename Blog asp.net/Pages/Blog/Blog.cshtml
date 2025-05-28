@@ -3,16 +3,25 @@
 @{
 }
 
-<div>
+<div class="my-5">
 
-	<h1>Blog</h1>
+    <h1>Blog</h1>
 
-        <a asp-area="" asp-page="/blog/edit" >Vytvořit post!</a>
+    <div class="d-flex justify-content-between my-4">
+        <a class="btn btn-secondary btn-outline-light" asp-area="" asp-page="/blog/edit">Vytvořit post!</a>
+        <select class="form-select w-50" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </div>
+
 
     @if(Model.PostList == null || !Model.PostList.Any())
     {
-        <p>Žádný obsah!!</p>
-        <a asp-area="" asp-page="/blog/edit" >Vytvořit post!</a>
+        <p class="my-5">Žádný obsah!!</p>
+        return;
     }
     else
     {
@@ -35,7 +44,7 @@
                         <td>@Html.DisplayFor(p=>post.Title)</td>
                         <td>@Html.DisplayFor(p=>post.Date)</td>
                         <td>@Html.DisplayFor(p=>post.Text)</td>
-                        <td>@Html.DisplayFor(p=>post.IsOnTop)</td>
+                        <td>@if (post.IsOnTop) {<span class="bg-success p-1 rounded">Přípnuto</span> }</td>
                         <td><a asp-area="" asp-page="/Blog/Details" asp-route-id="@post.Id" class="btn btn-secondary">Details</a></td>
                     </tr>
                 </tbody>
